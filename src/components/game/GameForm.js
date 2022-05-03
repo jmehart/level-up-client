@@ -17,7 +17,7 @@ export const GameForm = () => {
         numberOfPlayers: 0,
         title: "",
         maker: "",
-        gameTypeId: 0
+        gameType: 0
     })
 
     useEffect(() => {
@@ -36,8 +36,8 @@ export const GameForm = () => {
             copy.numberOfPlayers = parseInt(domEvent.target.value)
         } else if (domEvent.target.name === "skillLevel") {
             copy.skillLevel = parseInt(domEvent.target.value)
-        } else if (domEvent.target.name === "gameTypeId") {
-            copy.gameTypeId = parseInt(domEvent.target.value)
+        } else if (domEvent.target.name === "gameType") {
+            copy.gameType = parseInt(domEvent.target.value)
         }
             
         setCurrentGame(copy)
@@ -76,9 +76,9 @@ export const GameForm = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="gameTypeId">Game Type: </label>
-                    <select name="gameTypeId" className="form-control"
-                        defaultValue={currentGame.gameTypeId}
+                    <label htmlFor="gameType">Game Type: </label>
+                    <select name="gameType" className="form-control"
+                        defaultValue={currentGame.gameType}
                         onChange={changeGameState}>
                             <option value="0" hidden>Select a game type...</option>
                             {gameTypes.map(gameType => {
@@ -101,7 +101,7 @@ export const GameForm = () => {
                         title: currentGame.title,
                         number_of_players: parseInt(currentGame.numberOfPlayers),
                         skill_level: parseInt(currentGame.skillLevel),
-                        game_type_id: parseInt(currentGame.gameTypeId),
+                        game_type: parseInt(currentGame.gameType),
                         gamer_id: parseInt(localStorage.getItem("token"))
                     }
 
